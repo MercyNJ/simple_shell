@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 	const char *delim = " \n";
 	int token_count = 0;
 	char *token;
-	int i, count;
+	int i;
 
 
 	(void)argc;
@@ -66,10 +66,7 @@ int main(int argc, char **argv)
         }
         argv[i] = NULL;
 
-	for (count = 0; argv[count] != NULL; count++)
-	{
-		printf("argv[%d] = %s\n", count, argv[count]);
-	}
+	execution(argv);
 
 	}
 
