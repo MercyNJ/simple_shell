@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 
 	while (1)
     	{
-        printf("%s\n", shell_prompt);
+        printf("%s", shell_prompt);
         num_chars = getline(&lineptr, &n, stdin); 
         if (num_chars == -1)
         {
