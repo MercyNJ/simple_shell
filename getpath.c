@@ -7,7 +7,6 @@ char *get_path(char *user_command)
 	struct stat buff;
 
 	path = getenv("PATH");
-
 	if (path)
 	{
 		path_dup = strdup(path);
@@ -37,12 +36,10 @@ char *get_path(char *user_command)
 			}
 		}
 		free(path_dup);
-
 		if (stat(user_command, &buff) == 0)
 		{
 			return (user_command);
 		}
-
 	}
 	return (NULL);
 }
