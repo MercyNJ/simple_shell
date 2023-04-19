@@ -11,5 +11,6 @@
 
 void execution(char **argv);
 char *get_path(char *user_command);
+void handle_exit(char **argv);
 
 #endif

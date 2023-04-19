@@ -11,6 +11,12 @@ void execution(char **argv)
 	user_command = argv[0];
 	command = get_path(user_command);
 
+	if (strcmp(user_command, "exit") == 0)
+	{
+		handle_exit(argv);
+		return;
+	}
+
 	if (command == NULL)
 	{
 		printf("hsh: Command not found: %s\n", user_command);
