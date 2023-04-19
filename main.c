@@ -32,6 +32,13 @@ int main(int argc, char **argv)
 			printf("Exiting shell ...\n");
 			return (-1);
 		}
+
+		else if (strcmp(lineptr, "env\n") == 0)
+		{
+			handle_env();
+			continue;
+		}
+
 		lineptr_dup = malloc(sizeof(char) * num_chars);
 		if (lineptr_dup == NULL)
 		{

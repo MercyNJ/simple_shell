@@ -9,8 +9,11 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+extern char **environ;
+
 void execution(char **argv);
 char *get_path(char *user_command);
 void handle_exit(char **argv);
+void handle_env();
 
 #endif

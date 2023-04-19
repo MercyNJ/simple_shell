@@ -1,6 +1,5 @@
 #include "main.h"
 
-extern char **environ;
 
 void execution(char **argv)
 {
