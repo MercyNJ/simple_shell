@@ -1,5 +1,6 @@
 0x16. C - Simple Shell
-CGroup projectSyscall
+
+C Group project 
 
 Authors:MercyNJ
         Kipkoech99
