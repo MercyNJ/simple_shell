@@ -15,5 +15,6 @@ void execution(char **argv);
 char *get_path(char *user_command);
 void handle_exit(char **argv);
 void handle_env();
+ssize_t my_getline(char **lineptr, size_t *n, FILE *stream);
 
 #endif
