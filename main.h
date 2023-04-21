@@ -17,5 +17,6 @@ void handle_exit(char **argv);
 void handle_env();
 ssize_t my_getline(char **lineptr, size_t *n, FILE *stream);
 int set_env(char **envp, const char *name, const char *value, int overwrite);
+int unset_env(char **envp, const char *name);
 
 #endif

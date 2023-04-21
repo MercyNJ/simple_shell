@@ -22,6 +22,12 @@ void execution(char **argv)
                         return;
                 }
 
+	else if (strcmp(user_command, "unsetenv") == 0)
+	{
+		unset_env(envp, argv[1]);
+		return;
+	}
+
 	if (command == NULL)
 	{
 		printf("hsh: Command not found: %s\n", user_command);
@@ -40,6 +46,7 @@ void execution(char **argv)
 			perror("hsh: Execution error");
 			exit(EXIT_FAILURE);
 		}
+	}
 		else
 		{
 			if (waitpid(pid, &status, 0) == -1)
@@ -48,5 +55,5 @@ void execution(char **argv)
 				exit(EXIT_FAILURE);
 			}
 		}
-	}
+	
 }

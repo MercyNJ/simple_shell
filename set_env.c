@@ -34,7 +34,8 @@ int set_env(char **envp, const char *name, const char *value, int overwrite)
     entry_len = envp_len + strlen(value) + 2;
     new_envp = malloc(entry_len);
     sprintf(new_envp, "%s=%s", name, value);
-    printf("%s", new_envp);
+    printf("%s\n", new_envp);
+
 
     for (ptr = envp; *ptr != NULL; ptr++)
     {
@@ -42,6 +43,6 @@ int set_env(char **envp, const char *name, const char *value, int overwrite)
     	*(ptr + 1) = NULL;
     }
 
-    return 0;
+    return (0);
 }
 

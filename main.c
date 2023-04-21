@@ -19,10 +19,8 @@ int main(int argc, char **argv)
         char *token;
         int i;
 	char **envp = environ;
+	char *var;
 	/*int count;*/
-	/*const char *name;
-	const char *value;
-	int overwrite;*/
 
         (void)argc;
 
@@ -43,6 +41,16 @@ int main(int argc, char **argv)
                         handle_env(envp);
                         continue;
                 }
+
+		else if (strncmp(lineptr, "unsetenv", 8) == 0)
+		{
+			var = strtok(lineptr + 8, delim);
+			if (unset_env(envp, var) != 0)
+			{
+				fprintf(stderr, "Error unsetting variable %s\n", var);
+			}
+			continue;
+		}
 
                 lineptr_dup = malloc(sizeof(char) * num_chars);
                 if (lineptr_dup == NULL)
@@ -77,11 +85,11 @@ int main(int argc, char **argv)
 
                 execution(argv);
 
-                free(lineptr);
+               /*free(lineptr);*/
                 free(lineptr_dup);
+		free(argv);
 		
         }
-	free(argv);
 
 
         return (0);
