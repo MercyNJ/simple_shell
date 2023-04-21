@@ -18,7 +18,11 @@ int main(int argc, char **argv)
         int token_count = 0;
         char *token;
         int i;
-	int count;
+	char **envp = environ;
+	/*int count;*/
+	/*const char *name;
+	const char *value;
+	int overwrite;*/
 
         (void)argc;
 
@@ -36,7 +40,7 @@ int main(int argc, char **argv)
 
                 else if (strcmp(lineptr, "env\n") == 0)
                 {
-                        handle_env();
+                        handle_env(envp);
                         continue;
                 }
 
@@ -47,31 +51,31 @@ int main(int argc, char **argv)
                         exit(EXIT_FAILURE);
                 }
 		strcpy(lineptr_dup, lineptr);
-                token = my_strtok(lineptr, delim);
+                token = strtok(lineptr, delim);
 
                 while (token != NULL)
                 {
                         token_count++;
-                        token = my_strtok(NULL, delim);
+                        token = strtok(NULL, delim);
                 }
                 token_count++;
                 argv = malloc(sizeof(char *) * token_count);
-                token = my_strtok(lineptr_dup, delim);
+                token = strtok(lineptr_dup, delim);
 
                 for (i = 0; token != NULL; i++)
                 {
                         argv[i] = malloc(sizeof(char) * (strlen(token) + 1));
                         strcpy(argv[i], token);
-                        token = my_strtok(NULL, delim);
+                        token = strtok(NULL, delim);
 			 }
                 argv[i] = NULL;
 
-		for (count = 0; count < argc; count++)
+		/*for (count = 0; count < argc; count++)
 		{
 			printf("Argv[%d] = %s\n", count, argv[count]);
-		}
+		}*/
 
-               /* execution(argv);*/
+                execution(argv);
 
                 free(lineptr);
                 free(lineptr_dup);

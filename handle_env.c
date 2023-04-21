@@ -1,10 +1,10 @@
 #include "main.h"
 
 
-void handle_env()
+void handle_env(char **envp)
 {
 
-	char **env = environ;
+	char **env = envp;
 
 	while (*env != NULL)
 	{

@@ -6,6 +6,7 @@ void execution(char **argv)
 	pid_t pid;
 	int status;
 	char *user_command = NULL, *command = NULL;
+	char **envp = environ;
 
 	user_command = argv[0];
 	command = get_path(user_command);
@@ -15,6 +16,11 @@ void execution(char **argv)
 		handle_exit(argv);
 		return;
 	}
+	else if (strcmp(user_command, "setenv") == 0)
+                {
+                        set_env(envp, argv[1], argv[2], 1);
+                        return;
+                }
 
 	if (command == NULL)
 	{
