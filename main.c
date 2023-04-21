@@ -18,6 +18,7 @@ int main(int argc, char **argv)
         int token_count = 0;
         char *token;
         int i;
+	int count;
 
         (void)argc;
 
@@ -46,31 +47,38 @@ int main(int argc, char **argv)
                         exit(EXIT_FAILURE);
                 }
 		strcpy(lineptr_dup, lineptr);
-                token = strtok(lineptr, delim);
+                token = my_strtok(lineptr, delim);
 
                 while (token != NULL)
                 {
                         token_count++;
-                        token = strtok(NULL, delim);
+                        token = my_strtok(NULL, delim);
                 }
                 token_count++;
                 argv = malloc(sizeof(char *) * token_count);
-                token = strtok(lineptr_dup, delim);
+                token = my_strtok(lineptr_dup, delim);
 
                 for (i = 0; token != NULL; i++)
                 {
-                        argv[i] = malloc(sizeof(char) * strlen(token));
+                        argv[i] = malloc(sizeof(char) * (strlen(token) + 1));
                         strcpy(argv[i], token);
-                        token = strtok(NULL, delim);
+                        token = my_strtok(NULL, delim);
 			 }
                 argv[i] = NULL;
 
-                execution(argv);
+		for (count = 0; count < argc; count++)
+		{
+			printf("Argv[%d] = %s\n", count, argv[count]);
+		}
+
+               /* execution(argv);*/
 
                 free(lineptr);
                 free(lineptr_dup);
+		
         }
 	free(argv);
+
 
         return (0);
 }     
