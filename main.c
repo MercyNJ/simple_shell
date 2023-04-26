@@ -94,12 +94,9 @@ int main(int argc, char **argv)
 
                 execution(argv, filename);
 
-               /*free(lineptr);*/
-                free(lineptr_dup);
+		/*free(lineptr);*/
+		free(lineptr_dup);
 		free(argv);
-		
-        }
-
-
-        return (0);
-}     
+	}
+	return (0);
+}

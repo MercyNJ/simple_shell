@@ -7,30 +7,14 @@ void execution(char **argv, char *filename)
 	int status;
 	char *user_command = NULL, *command = NULL;
 	char **envp = environ;
-/*	bool handle_logic_result;*/
 	char **alias_value;
-/*	char **alias_list = NULL;*/
-/*	char **alias_argv;*/
 	int i = 0;
-/*	char logical_operator[] = NO_OPERATOR;*/
-/*	char AND_OPERATOR[2];*/
-  /*      char OR_OPERATOR[2];*/
-
-/*	AND_OPERATOR[] = "&&";*/
-/*	OR_OPERATOR[] = "||";*/
-
 
 	user_command = argv[0];
 	if (user_command[0] == '#')
 	{
 		return;
 	}
-/*	comments(user_command);*/
-
-
-/*	command = get_path(user_command);*/
-/*	handle_logic_result = handle_logic(argv);*/
-/*	if (logical_operator == AND_OPERATOR)
 	{
 		if (handle_logic_result == true)
 		{

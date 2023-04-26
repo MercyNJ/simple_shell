@@ -1,6 +1,12 @@
 #include "main.h"
 
-
+/**
+ * execute_file-Opens files and executes commands within it
+ * @argc: No of args passed
+ * @argv: The argument passed
+ *
+ * Return: always (0) success
+ */
 int execute_file(int argc, char **argv)
 {
 	char user_command[MAX_COMMAND_LEN];
@@ -22,7 +28,7 @@ int execute_file(int argc, char **argv)
 		return (1);
 	}
 
-	while(fgets(user_command, MAX_COMMAND_LEN, fptr) != NULL)
+	while (fgets(user_command, MAX_COMMAND_LEN, fptr) != NULL)
 	{
 		system(user_command);
 	}

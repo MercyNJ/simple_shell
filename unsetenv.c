@@ -1,5 +1,13 @@
 #include "main.h"
 
+/**
+ * unset_env - Removes environment from list
+ * @envp: The list of environments
+ * @name: The name of the environment to be removed
+ *
+ * Return: 0
+ */
+
 int unset_env(char **envp, const char *name)
 {
 	char **env_var, **newenv_list;
@@ -15,15 +23,16 @@ int unset_env(char **envp, const char *name)
 	}
 
 	for (env_var = envp; *env_var != NULL; env_var++)
-       	{ 
-        count++;
-    }
+	{
+		count++;
+	}
+	newenv_list = (char **)malloc((count + 1) * sizeof(char *));
 
-    newenv_list = (char **)malloc((count + 1) * sizeof(char *));
-    if (newenv_list == NULL) { 
-        fprintf(stderr, "Error: Memory allocation failed\n");
-        return 1;
-    }
+	if (newenv_list == NULL)
+	{
+		fprintf(stderr, "Error: Memory allocation failed\n");
+		return (1);
+	}
 
 	for (i = 0, j = 0; envp[i] != NULL; i++)
 	{
@@ -34,7 +43,6 @@ int unset_env(char **envp, const char *name)
 		}
 		newenv_list[j++] = envp[i];
 	}
-
 	newenv_list[j] = NULL;
 
 	if (!env_found)
