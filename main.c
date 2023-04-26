@@ -26,6 +26,7 @@ int main(int argc, char **argv)
 
         shell_prompt = "(&) ";
 
+
         while (1)
         {
                 printf("%s", shell_prompt);
@@ -41,6 +42,12 @@ int main(int argc, char **argv)
                         handle_env(envp);
                         continue;
                 }
+
+		else if (strncmp(lineptr, "cd", 2) == 0)
+		{
+			my_cd(lineptr + 2);
+			continue;
+		}
 
 		else if (strncmp(lineptr, "unsetenv", 8) == 0)
 		{
@@ -76,7 +83,8 @@ int main(int argc, char **argv)
                         strcpy(argv[i], token);
                         token = strtok(NULL, delim);
 			 }
-                argv[i] = NULL;
+            /*    argv[i] = NULL;*/
+		  argv[token_count - 1] = NULL;
 
 		/*for (count = 0; count < argc; count++)
 		{
