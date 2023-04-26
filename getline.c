@@ -1,5 +1,13 @@
 #include "main.h"
 
+/**
+ * my_getline - Takes user input from stdin
+ * @lineptr: pointer to the buffer
+ * @n: buffer
+ * @stream: stdin
+ *
+ * Return: Nothing
+ */
 ssize_t my_getline(char **lineptr, size_t *n, FILE *stream)
 {
 	ssize_t num_chars = 0;
@@ -23,7 +31,7 @@ ssize_t my_getline(char **lineptr, size_t *n, FILE *stream)
 			*lineptr = realloc(*lineptr, buffer_size);
 			if (*lineptr == NULL)
 			{
-				return -1;
+				return (-1);
 			}
 		}
 		c = fgetc(stream);
@@ -40,8 +48,8 @@ ssize_t my_getline(char **lineptr, size_t *n, FILE *stream)
 	}
 	if (num_chars == 0)
 	{
-		return -1;
+		return (-1);
 	}
 	(*lineptr)[num_chars] = '\0';
-	return num_chars;
+	return (num_chars);
 }
