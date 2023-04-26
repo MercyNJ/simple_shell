@@ -1,7 +1,7 @@
 #include "main.h"
 
 
-void execution(char **argv)
+void execution(char **argv, char *filename)
 {
 	pid_t pid;
 	int status;
@@ -95,7 +95,7 @@ void execution(char **argv)
 
 	if (command == NULL)
 	{
-		printf("hsh: Command not found: %s\n", user_command);
+		printf("hsh: Command not found: %s%s\n", filename, user_command);
 		exit(EXIT_FAILURE);
 	}
 /*	if (handle_logic_result == false)

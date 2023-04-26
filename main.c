@@ -20,6 +20,7 @@ int main(int argc, char **argv)
         int i;
 	char **envp = environ;
 	char *var;
+	char *filename = NULL;
 	/*int count;*/
 
         (void)argc;
@@ -91,7 +92,7 @@ int main(int argc, char **argv)
 			printf("Argv[%d] = %s\n", count, argv[count]);
 		}*/
 
-                execution(argv);
+                execution(argv, filename);
 
                /*free(lineptr);*/
                 free(lineptr_dup);

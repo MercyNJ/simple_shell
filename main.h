@@ -13,11 +13,14 @@
 #include <sys/wait.h>
 #include <stdbool.h>
 
+#define MAX_COMMAND_LEN 1024
+#define MAX_FILENAME_LEN 256
+
 extern char **environ;
 extern bool success;
 
 
-void execution(char **argv);
+void execution(char **argv, char *filename);
 char *get_path(char *user_command);
 void handle_exit(char **argv);
 void handle_env();
@@ -29,5 +32,8 @@ bool handle_logic(char **argv);
 void comments(char *lineptr);
 char** handle_alias(char** argv);
 char **get_next_command(char **argv);
+=======
+int execute_file(int argc, char **argv);
+>>>>>>> c07e58ed5b92480a1d5fb308ac76d8c102a08e32
 
 #endif
