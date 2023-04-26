@@ -32,8 +32,6 @@ bool handle_logic(char **argv);
 void comments(char *lineptr);
 char** handle_alias(char** argv);
 char **get_next_command(char **argv);
-=======
 int execute_file(int argc, char **argv);
->>>>>>> c07e58ed5b92480a1d5fb308ac76d8c102a08e32
 
 #endif

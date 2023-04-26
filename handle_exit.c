@@ -1,5 +1,16 @@
 #include "main.h"
 
+/**
+ * handle_exit - Exit shell with specified exit status.
+ *
+ * @argv: Pointer to string array containing command line arguments.
+ *
+ * Description: If exit status is inavalid,
+ * An error message is printed to standard output.
+ *
+ * Return: Nothing.
+ */
+
 void handle_exit(char **argv)
 {
 	if (argv && argv[1])

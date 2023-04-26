@@ -1,5 +1,18 @@
 #include "main.h"
 
+/**
+ * get_path - Get full path to a command.
+ *
+ * @user_command: Pointer to a string with command.
+ *
+ * Description: Searches for command by checking,
+ * each directory in the PATH environment variable.
+ *
+ * Return: Pointer to string containing full path - success
+ * otherwise NULL
+ *
+ */
+
 char *get_path(char *user_command)
 {
 	char *path, *path_dup, *path_dir, *dir_path;
