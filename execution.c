@@ -7,33 +7,11 @@ void execution(char **argv, char *filename)
 	int status;
 	char *user_command = NULL, *command = NULL;
 	char **envp = environ;
-	char **alias_value;
-	int i = 0;
-
 	user_command = argv[0];
 	if (user_command[0] == '#')
 	{
 		return;
 	}
-	{
-		if (handle_logic_result == true)
-		{
-			char **new_argv = get_next_command(argv);
-			execution(new_argv);
-			free(new_argv);
-		}
-	}
-	else if (logical_operator == OR_OPERATOR)
-	{
-		if (handle_logic_result == false)
-		{
-			char **new_argv = get_next_command(argv);;
-			execution(new_argv);
-			free(new_argv);
-		}
-	}
-	else
-	{*/
 		command = get_path(user_command);
 
 
@@ -60,32 +38,12 @@ void execution(char **argv, char *filename)
 		return ;
 	}
 
-	if ((alias_value = handle_alias(argv)))
-	{
-		char* alias_args[MAX_ARGS];
-
-	        char* token = strtok(*alias_value, " ");
-		while (token != NULL && i < MAX_ARGS-1)
-		{
-			alias_args[i++] = token;
-			token = strtok(NULL, " ");
-		}
-		alias_args[i] = NULL;
-
-		execution(alias_args);
-		free(alias_value);
-		return;
-	}
 
 	if (command == NULL)
 	{
 		printf("hsh: Command not found: %s%s\n", filename, user_command);
 		exit(EXIT_FAILURE);
 	}
-/*	if (handle_logic_result == false)
-	{
-		return;
-	}*/
 	
 	pid = fork();
 	if (pid == -1)
