@@ -1,6 +1,6 @@
 0x16. C - Simple Shell
 
-C Group project 
+C Group project
 
 Authors:MercyNJ
         Kipkoech99
@@ -124,4 +124,3 @@ mandatory
 Simple shell 0.4 +
 
     Implement the env built-in, that prints the current environment
-   
