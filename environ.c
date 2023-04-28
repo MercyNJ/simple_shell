@@ -15,7 +15,7 @@ int _myenv(info_t *info)
 /**
  * _getenv - Retrieve value of an environ var
  * @info: Struct with args.maintain const protype
- * @name: env var 
+ * @name: env variable.
  *
  * Return: value
  */

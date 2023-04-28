@@ -73,7 +73,7 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
  * replace_alias - replace aliases in the tokenized str
  * @info: parameter struct
  *
- * Return: 1 replaced, 0 if not 
+ * Return: 1 replaced, 0 if not
  */
 int replace_alias(info_t *info)
 {
@@ -102,7 +102,7 @@ int replace_alias(info_t *info)
  * replace_vars - replace vars in the tokenized str
  * @info: parameter struct
  *
- * Return: 1 replaced, 0 if not 
+ * Return: 1 replaced, 0 if not
  */
 int replace_vars(info_t *info)
 {
