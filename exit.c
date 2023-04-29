@@ -35,7 +35,6 @@ char *_strncpy(char *dest, char *src, int n)
  *@dest: the destination string
  *@src: the source string
  *@n: maximum bytes
-
  *Return: the concatenated string
  */
 char *_strncat(char *dest, char *src, int n)
@@ -62,7 +61,6 @@ char *_strncat(char *dest, char *src, int n)
  **_strchr - locates a character in a string
  *@s: the string to search for char
  *@c: the char to locate
-
  *Return: (s) a pointer to the memory area s
  */
 char *_strchr(char *s, char c)
